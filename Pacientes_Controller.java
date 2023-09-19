@@ -18,14 +18,15 @@ public class Pacientes_Controller extends Pacientes implements Pacientes_Interfa
 	
 	private ArrayList<Pacientes> listandoPacientes = new ArrayList<>();
 	
-	
+	@Override
+	public void mensagem() {
+		
+	}
 	
 	@Override
 	public void listarPacientes() {
 		
-		for (var pacientes : listandoPacientes) {
-			pacientes.Vizaulizar();
-		}
+		System.out.println(listandoPacientes);
 		
 		
 	}
@@ -48,19 +49,17 @@ public class Pacientes_Controller extends Pacientes implements Pacientes_Interfa
 	@Override
 	public void pesquisar(Pacientes pacientes) {
 		
-		List<String> pesquisando = listandoPacientes.stream() 
-		.filter(x-> x.toString().startsWith("J"))
+		List<Pacientes> pesquisando = listandoPacientes.stream() 
+		.filter(x-> x.toString().startsWith(getNomePaciente()))
         .collect(Collectors.toList());
 		
 		System.out.println("Pacientes com esse nome: " + pesquisando);
 	}
-		
+	
+
 	}
 	
 
-	//if (listandoPacientes.contains(this.getNomePaciente())){
-		//System.out.println("Paciente encontrado!");
-	//} else {System.out.println("Paciente não encontrado!");}
-//} 
+
 
 
